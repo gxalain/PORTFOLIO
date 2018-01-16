@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>Welcome to the Portfolio of Gus Alain</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javascript">
+
+	/***********************************************
+	* Dynamic Ajax Content- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+	* Please keep this notice intact
+	* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+	***********************************************/
+	
+	var bustcachevar=1 //bust potential caching of external pages after initial request? (1=yes, 0=no)
+	var loadedobjects=""
+	var rootdomain="http://"+window.location.hostname
+	var bustcacheparameter=""
+	
+	function ajaxpage(url, containerid){
+	var page_request = false
+	if (window.XMLHttpRequest) // if Mozilla, Safari etc
+	page_request = new XMLHttpRequest()
+	else if (window.ActiveXObject){ // if IE
+	try {
+	page_request = new ActiveXObject("Msxml2.XMLHTTP")
+	} 
+	catch (e){
+	try{
+	page_request = new ActiveXObject("Microsoft.XMLHTTP")
+	}
+	catch (e){}
+	}
+	}
+	else
+	return false
+	page_request.onreadystatechange=function(){
+	loadpage(page_request, containerid)
+	}
+	if (bustcachevar) //if bust caching of external page
+	bustcacheparameter=(url.indexOf("?")!=-1)? "&"+new Date().getTime() : "?"+new Date().getTime()
+	page_request.open('GET', url+bustcacheparameter, true)
+	page_request.send(null)
+	}
+	
+	function loadpage(page_request, containerid){
+	if (page_request.readyState == 4 && (page_request.status==200 || window.location.href.indexOf("http")==-1))
+	document.getElementById(containerid).innerHTML=page_request.responseText
+	}
+	
+	function loadobjs(){
+	if (!document.getElementById)
+	return
+	for (i=0; i<arguments.length; i++){
+	var file=arguments[i]
+	var fileref=""
+	if (loadedobjects.indexOf(file)==-1){ //Check to see if this object has not already been added to page before proceeding
+	if (file.indexOf(".js")!=-1){ //If object is a js file
+	fileref=document.createElement('script')
+	fileref.setAttribute("type","text/javascript");
+	fileref.setAttribute("src", file);
+	}
+	else if (file.indexOf(".css")!=-1){ //If object is a css file
+	fileref=document.createElement("link")
+	fileref.setAttribute("rel", "stylesheet");
+	fileref.setAttribute("type", "text/css");
+	fileref.setAttribute("href", file);
+	}
+	}
+	if (fileref!=""){
+	document.getElementsByTagName("head").item(0).appendChild(fileref)
+	loadedobjects+=file+" " //Remember this object as being already added to page
+	}
+	}
+	}
+	
+	</script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+	<center>
+<!-- Save for Web Slices (portfolio.psd) -->
+<table id="Table_01" width="800" height="600" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="3">
+			<a href="http://fxportfio.000webhost.com">
+				<img src="images/portfolio_01.jpg" width="800" height="163" border="0" alt=""></a></td>
+	</tr>
+	<tr>
+		<td rowspan="10">
+			<img src="images/index_02.jpg" width="48" height="437" alt=""></td>
+		<td>
+			<a href="javascript:ajaxpage('webdev.html', 'content');">
+				<img src="images/portfolio_03.jpg" width="188" height="24" border="0" alt=""></a></td>
+		<td rowspan="10">
+			<div id="content">Click on a menu on the left.</div>
+			<!-- <img src="images/index_04.jpg" width="564" height="437" alt=""></td> -->
+	</tr>
+	<tr>
+		<td>
+			<img src="images/index_05.jpg" width="188" height="17" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="javascript:ajaxpage('va.html', 'content');">
+				<img src="images/portfolio_05.jpg" width="188" height="22" border="0" alt=""></a></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/index_07.jpg" width="188" height="10" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="javascript:ajaxpage('design.html', 'content');">
+				<img src="images/portfolio_06.jpg" width="188" height="23" border="0" alt=""></a></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/index_09.jpg" width="188" height="12" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="javascript:ajaxpage('socmed.html', 'content');">
+				<img src="images/portfolio_07.jpg" width="188" height="21" border="0" alt=""></a></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/index_11.jpg" width="188" height="9" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<a href="javascript:ajaxpage('wp.html', 'content');">
+				<img src="images/portfolio_08.jpg" width="188" height="20" border="0" alt=""></a></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/index_13.jpg" width="188" height="279" alt=""></td>
+	</tr>
+</table>
+</center>
+<!-- End Save for Web Slices -->
+</body>
+</html>
